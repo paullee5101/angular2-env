@@ -11,7 +11,7 @@ var webpackDevConfig = require('./webpack.dev.config.js');
 var stream = require('webpack-stream');
 
 var path = {
-    SASS_SRC: ['./resources/assets/sass/**/*.scss'],
+    SASS_SRC: ['./resources/assets/sass/app.scss'],
     DEST_SRC: './resources/app',
     DEST: './public',
     ROOT:''
@@ -30,7 +30,6 @@ gulp.task('webpack-dev', function() {
   return gulp.src(path.ROOT)
     .pipe(gulpSourcemaps.init())
     .pipe(stream(webpackDevConfig))
-    .pipe(uglify())
     .pipe(gulpSourcemaps.write())
     .pipe(gulp.dest(path.ROOT));
 });

@@ -11,32 +11,33 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/api/view', function () {
+    View::addExtension('html','php');
+    return View::make('index');
 });
 
 /**
  * Users module routes
  * */
-Route::post('/users/signIn', 'UsersController@signIn');
-Route::post('/users/signUp', 'UsersController@signUp');
-Route::get('/users/myProfile', 'UsersController@getUserProfile');
-Route::post('/users/updateProfile', 'UsersController@updateUserProfile');
-Route::get('/users/invitationList', 'UsersController@getInvitationList');
-Route::post('/users/invite', 'UsersController@invite');
+Route::post('/api/users/signIn', 'UsersController@signIn');
+Route::post('/api/users/signUp', 'UsersController@signUp');
+Route::get('/api/users/myProfile', 'UsersController@getUserProfile');
+Route::post('/api/users/updateProfile', 'UsersController@updateUserProfile');
+Route::get('/api/users/invitationList', 'UsersController@getInvitationList');
+Route::post('/api/users/invite', 'UsersController@invite');
 
 /**
  * Memberships module routes 
  * */
-Route::post('/memberships/requestIntroduction', 'MembershipsController@requestIntroduction');
-Route::post('/memberships/acceptInvitation', 'MembershipsController@acceptInvitation');
-Route::get('/memberships/membershipPurchaseDetails', 'MembershipsController@getMembershipPurchaseDetails');
-Route::post('/memberships/updatePurchaseDetails', 'MembershipsController@updatePurchaseDetails');
-Route::post('/memberships/updatePurchaseStatus', 'MembershipsController@updatePurchaseStatus');
-Route::post('/memberships/purchaseList', 'MembershipsController@getPurchaseList');
+Route::post('/api/memberships/requestIntroduction', 'MembershipsController@requestIntroduction');
+Route::post('/api/memberships/acceptInvitation', 'MembershipsController@acceptInvitation');
+Route::get('/api/memberships/membershipPurchaseDetails', 'MembershipsController@getMembershipPurchaseDetails');
+Route::post('/api/memberships/updatePurchaseDetails', 'MembershipsController@updatePurchaseDetails');
+Route::post('/api/memberships/updatePurchaseStatus', 'MembershipsController@updatePurchaseStatus');
+Route::post('/api/memberships/purchaseList', 'MembershipsController@getPurchaseList');
 
 /**
  * Contacts module routes
  * */
-Route::post('/contacts/uploadCSV', 'ContactsController@uploadCSV');
-Route::get('/contacts/contactList', 'ContactsController@getContactList');
+Route::post('/api/contacts/uploadCSV', 'ContactsController@uploadCSV');
+Route::get('/api/contacts/contactList', 'ContactsController@getContactList');
